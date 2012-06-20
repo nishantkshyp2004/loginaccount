@@ -1,0 +1,37 @@
+{% extends 'registration/base.html' %}
+{% block title %}MY ACCOUNT{% endblock %}
+{% block body %}
+<div style=" float:right;">
+<a href="/accounts/logout/" >LOGOUT</a>
+</div>
+	
+<h1> Welcome Mr. {{ user }} </h1>
+
+yor user profile details are:
+<br>
+<table class="table">
+<thead>
+<tr>
+<th>NAME</th>
+<th>COUNTRY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{ request.user }}</td>
+<td>{{ country }}</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<h2>You can upload a csv file:</h2>
+<form action="/myaccount/" method='post' enctype='multipart/form-data' class='well form-inline'>
+	{% csrf_token %}
+	{{ form.files.errors }}
+	{{ form.as_p }}
+	<input type="submit" value="Upload" >
+</form>
+Click <a href='/list_files'>here</a> to view your uploaded files.<br>
+Click <a href='/csv_data'>here</a> to view your uploaded files DATA.
+{% endblock %}

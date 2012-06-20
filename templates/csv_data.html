@@ -1,0 +1,31 @@
+{% extends 'registration/base.html' %}
+{% block body %}
+{% if csv_data_dict %}
+
+<table class="table table-striped">
+<thead>
+
+<tr>
+<th>Title</th>
+<th>Name</th>
+<th>Address</th>
+<th>Phone</th>
+<th>City</th>
+</tr>
+</thead>
+<tbody>
+{% for csv_data in csv_data_dict %}
+
+<tr>
+<td>{{ csv_data.title }}</td>
+<td>{{ csv_data.name }}</td>
+<td>{{ csv_data.address }}</td>
+<td>{{ csv_data.phone }}</td>
+<td>{{ csv_data.city }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}
+
+{% endblock %}

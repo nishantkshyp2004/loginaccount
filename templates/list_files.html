@@ -1,0 +1,15 @@
+{% extends 'registration/base.html' %}
+{% block title %}LIST{% endblock %}
+
+{% block body %}
+
+<h2>You have {{ no_uploads }} {% if no_uploads == 1 %}file{% else %}files{% endif %}.</h2>
+<br>
+{% if user_files %}
+{% for files in user_files %}
+
+{{ forloop.counter }}. <i class="icon-folder-close"></i>{{files}}
+
+{% endfor %}
+{% endif %}	
+{% endblock %}
